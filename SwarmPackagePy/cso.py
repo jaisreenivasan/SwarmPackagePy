@@ -36,7 +36,11 @@ class cso(intelligence.sw):
         step = u / abs(v) ** (1 / beta)
 
         self.__agents = np.random.uniform(lb, ub, (n, dimension))
+        for i in range(0,n):
+            self._agents[i].sort()
         self.__nests = np.random.uniform(lb, ub, (nest, dimension))
+        for i in range(0,nest):
+            self._nests[i].sort()
         Pbest = self.__nests[np.array([function(x)
                                        for x in self.__nests]).argmin()]
         Gbest = Pbest
